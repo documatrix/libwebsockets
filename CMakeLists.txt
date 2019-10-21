@@ -1484,7 +1484,7 @@ if (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX OR COMPILER_IS_CLANG)
     if (UNIX AND NOT LWS_WITH_ESP32)
 	    set(CMAKE_C_FLAGS "-Wall -Wsign-compare -Wuninitialized -Werror ${VISIBILITY_FLAG} -Wundef ${GCOV_FLAGS} ${CMAKE_C_FLAGS} ${ASAN_FLAGS}" )
     else()
-	    set(CMAKE_C_FLAGS "-Wall -Wsign-compare -Wuninitialized -Werror ${VISIBILITY_FLAG} ${GCOV_FLAGS} ${CMAKE_C_FLAGS}" )
+	    set(CMAKE_C_FLAGS "-Wall -Wsign-compare -Wuninitialized ${VISIBILITY_FLAG} ${GCOV_FLAGS} ${CMAKE_C_FLAGS}" )
     endif()
 endif ()
 
@@ -2416,7 +2416,6 @@ if (LWS_WITH_LWSWS)
 		)
 endif (LWS_WITH_LWSWS)
 
-if (UNIX)
 
 # Generate and install pkgconfig.
 # (This is not indented, because the tabs will be part of the output)
@@ -2456,7 +2455,6 @@ Cflags: -I\${includedir}"
 		DESTINATION lib${LIB_SUFFIX}/pkgconfig)
 
 
-endif(UNIX)
 
 #
 # Installation preparations.
